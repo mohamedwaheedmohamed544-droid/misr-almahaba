@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /booking/confirm
+Sitemap: https://www.misralmahaba.example/sitemap.xml
