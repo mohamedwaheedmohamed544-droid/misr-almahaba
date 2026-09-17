@@ -4,30 +4,17 @@
       "ar": "",
       "en": ""
     },
-    "line1": {
-      "ar": "صحتكم مسئوليتنا…",
-      "en": "Your health, our responsibility."
-    },
-    "line2": {
-      "ar": "ورعايتكم",
-      "en": "Your care, our"
+    "badgeText": {
+      "ar": "تحصل على الاعتماد النهائي من الهيئة العامة للاعتماد والرقابة الصحية",
+      "en": "to earn final accreditation from Egypt’s healthcare accreditation authority"
     },
     "highlight": {
       "ar": "مهمتنا",
       "en": "mission."
     },
-    "lead": {
-      "ar": "مستشفى متكامل يخدم أهالي شمال المنيا: طوارئ وعناية مركزة، عمليات وغسيل كلوي، عيادات خارجية وتأهيل، مع أشعة ومختبر تحت سقف واحد.",
-      "en": "A full-service hospital for northern Minya: emergency and intensive care, surgery and dialysis, outpatient clinics and rehab — with imaging and lab under one roof."
-    },
-    "image": "/uploads/building-hero.webp",
     "badgeTitle": {
       "ar": "أول منشأة بالمنيا",
       "en": "First in Minya"
-    },
-    "badgeText": {
-      "ar": "تحصل على الاعتماد النهائي من الهيئة العامة للاعتماد والرقابة الصحية",
-      "en": "to earn final accreditation from Egypt’s healthcare accreditation authority"
     },
     "trust": [
       {
@@ -38,7 +25,20 @@
         "ar": "ضمن التأمين الصحي الشامل",
         "en": "Universal Health Insurance partner"
       }
-    ]
+    ],
+    "image": "/uploads/building-full.webp",
+    "lead": {
+      "ar": "مستشفى متكامل يخدم أهالي شمال المنيا: طوارئ وعناية مركزة، عمليات وغسيل كلوي، عيادات خارجية وتأهيل، مع أشعة ومختبر تحت سقف واحد.",
+      "en": "A full-service hospital for northern Minya: emergency and intensive care, surgery and dialysis, outpatient clinics and rehab — with imaging and lab under one roof."
+    },
+    "line1": {
+      "ar": "صحتكم مسئوليتنا…",
+      "en": "Your health, our responsibility."
+    },
+    "line2": {
+      "ar": "ورعايتكم",
+      "en": "Your care, our"
+    }
   },
   "about": {
     "title": {
