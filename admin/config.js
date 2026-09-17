@@ -40,7 +40,7 @@
     locale: "ar",
     backend: {
       name: "github",
-      repo: "__REPO__",
+      repo: "misr-almahaba/misr-almahaba",
       branch: "__BRANCH__",
       commit_messages: {
         create: "إضافة {{collection}}: {{slug}}",
