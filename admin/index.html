@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>لوحة التحكم — مستشفى مصر المحبة</title>
+  <link rel="icon" href="/uploads/logo-96.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+  <style>
+    /* Brand touch + Arabic typography for the dashboard */
+    body, button, input, textarea, select { font-family: "IBM Plex Sans Arabic", system-ui, sans-serif !important; }
+    [class*="AppHeader"], header[class*="css"] { box-shadow: 0 1px 0 #D6E2EE !important; }
+    a[class*="AppHeaderNavLink"][class*="active"], a[class*="AppHeaderNavLink"]:hover { color: #0F6CB4 !important; }
+    [class*="LoginPage"] { background: linear-gradient(160deg, #E1EEF9, #F6F9FC) !important; }
+    [class*="LoginButton"], button[class*="LoginButton"] { background: #0F6CB4 !important; color: #fff !important; }
+    textarea, input[type="text"] { line-height: 1.8 !important; }
+    /* Arabic text fields read right-to-left; English stays left-to-right (set dynamically below) */
+    .ma-rtl { direction: rtl; text-align: right; }
+    #ma-help { position: fixed; inset-inline-start: 16px; bottom: 16px; z-index: 9999; background: #0F6CB4; color: #fff; border-radius: 999px; padding: .55rem 1rem; font-size: 14px; text-decoration: none; box-shadow: 0 10px 30px -12px rgba(13,34,54,.4); direction: rtl; }
+    #ma-help:hover { background: #0A4E86; }
+  </style>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+</head>
+<body>
+  <a id="ma-help" href="/admin/guide.html" target="_blank" rel="noopener">دليل استخدام اللوحة ؟</a>
+
+  <script src="https://unpkg.com/decap-cms@3.16.2/dist/decap-cms.js"></script>
+  <script src="./locale-ar.js"></script>
+  <script src="./config.js"></script>
+  <script>
+    // Arabic UI (merged on top of English so any untranslated string still shows)
+    const en = (CMS.getLocale && CMS.getLocale("en")) || {};
+    const merge = (a, b) => { const out = { ...a }; for (const k in b) out[k] = b[k] && typeof b[k] === "object" && !Array.isArray(b[k]) ? merge(a?.[k] || {}, b[k]) : b[k]; return out; };
+    CMS.registerLocale("ar", merge(en, window.MA_CMS_LOCALE_AR));
+
+    // Local editing: `npx decap-server` + open http://localhost:5173/admin/
+    const isLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+    const cfg = window.MA_CMS_CONFIG;
+    if (cfg.backend.repo.startsWith("__") && !isLocal) console.warn("Repository not set — deploy through Netlify or edit admin/config.js");
+    if (cfg.site_url.startsWith("__")) { cfg.site_url = location.origin; cfg.display_url = location.origin; }
+    if (cfg.backend.branch.startsWith("__")) cfg.backend.branch = "main";
+
+    CMS.init({ config: cfg });
+
+    // Arabic inputs right-to-left: fields whose id/name ends in "ar"
+    const applyDir = () => document.querySelectorAll("input[type=text]:not(.ma-dir), textarea:not(.ma-dir)").forEach((el) => {
+      el.classList.add("ma-dir");
+      const id = (el.id || "") + " " + (el.name || "");
+      if (/(^|[-_.\s])ar(\b|$)|-ar-/.test(id)) el.classList.add("ma-rtl"); else el.setAttribute("dir", "auto");
+    });
+    new MutationObserver(applyDir).observe(document.body, { childList: true, subtree: true });
+  </script>
+</body>
+</html>
